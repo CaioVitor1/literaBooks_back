@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model favoriteGenre {
+  id      Int    @id @default(autoincrement())
+  userId  Int
+  genreId Int
+  genre   genre @relation(fields: [genreId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users   users @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model futuresReadings {
+  id       Int     @id @default(autoincrement())
+  userId   Int
+  reviewId Int
+  reviews  reviews @relation(fields: [reviewId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users    users   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model genre {
+  id            Int    @id @default(autoincrement())
+  name          String
+  favoriteGenre favoriteGenre[]
+  reviews       reviews[]
+}
+
+model reviews {
+  id              Int               @id @default(autoincrement())
+  title           String
+  image           String
+  author          String
+  genreId         Int
+  description     String
+  userId          Int
+  genre           genre             @relation(fields: [genreId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users           users             @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  futuresReadings futuresReadings[]
+}
+
+model users {
+  id              Int               @id @default(autoincrement())
+  name            String            @db.VarChar(100)
+  email           String            @unique
+  password        String
+  image           String
+  readingGold     Int?
+  nextReading     Int?
+  favoriteBook    String?
+  favoriteAuthor  String?
+  favoriteGenre   favoriteGenre[]
+  futuresReadings futuresReadings[]
+  reviews         reviews[]
+}
