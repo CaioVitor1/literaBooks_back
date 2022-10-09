@@ -18,3 +18,11 @@ export async function usersPreferences(req: Request, res: Response){
     return res.status(201).send("Favorite Author and books includes in your perfil")
 
 }
+
+export async function choiceReadingGols(req: Request, res: Response){
+    const {readingGoals} : {readingGoals: string} = req.body
+    const userId = res.locals.session
+
+    await preferencesService.choiceReadingGoals(Number(userId), Number(readingGoals))
+    return res.status(200).send("Reading goals includs in your perfil")
+}

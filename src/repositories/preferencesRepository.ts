@@ -25,3 +25,13 @@ export async function insertFavoriteBookAndAuthor(userId: number, favoriteBook: 
         }
     })
 }
+
+export async function insertReadingGoals(userId: number, readingGoals: number){
+    return await client.users.updateMany({
+        where: {
+            id: userId
+        }, data: {
+        readingGoals: readingGoals
+        }
+    })
+}

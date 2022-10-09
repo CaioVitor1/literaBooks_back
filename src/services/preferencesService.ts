@@ -21,3 +21,8 @@ export async function choiceBookAndAuthor(userId: number, favoriteBook: string, 
 const updateBooksAndAuthor = await preferencesRepository.insertFavoriteBookAndAuthor(userId, favoriteBook, favoriteAuthor)
 
 }
+
+export async function choiceReadingGoals(userId: number, readingGoals: number){
+    const updateReadingGoals = await preferencesRepository.insertReadingGoals(userId, readingGoals)
+
+}
