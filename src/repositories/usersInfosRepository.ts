@@ -7,3 +7,7 @@ export async function findInfoUsers(userId: number){
         }
     })
 }
+
+export async function findEveryUsers() {
+    return await client.users.findMany()
+}

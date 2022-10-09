@@ -8,6 +8,9 @@ export async function getInfoUsers(req: Request, res: Response){
 
 }
 
-export async function getRecommendations(req: Request, res: Response){
-    const userId = res.locals.session;
+
+export async function getEveryUsers(req: Request, res: Response){
+
+    const users = await usersInfosService.getEveryUsers()
+    return res.status(200).send(users)
 }
