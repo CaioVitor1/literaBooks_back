@@ -8,7 +8,7 @@ datasource db {
 }
 
 model favoriteGenre {
-  id      Int    @id @default(autoincrement())
+  id      Int   @id @default(autoincrement())
   userId  Int
   genreId Int
   genre   genre @relation(fields: [genreId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -24,7 +24,7 @@ model futuresReadings {
 }
 
 model genre {
-  id            Int    @id @default(autoincrement())
+  id            Int             @id @default(autoincrement())
   name          String
   favoriteGenre favoriteGenre[]
   reviews       reviews[]
@@ -49,10 +49,10 @@ model users {
   email           String            @unique
   password        String
   image           String
-  readingGold     Int?
   nextReading     Int?
   favoriteBook    String?
   favoriteAuthor  String?
+  readingGoals    Int?
   favoriteGenre   favoriteGenre[]
   futuresReadings futuresReadings[]
   reviews         reviews[]
