@@ -15,3 +15,9 @@ const insertGenre1 = await preferencesRepository.insertFavoriteGenre(userId, gen
 const insertGenre2 = await preferencesRepository.insertFavoriteGenre(userId,genre2Id);
 const insertGenre3 = await preferencesRepository.insertFavoriteGenre(userId,genre3Id);
 }
+
+
+export async function choiceBookAndAuthor(userId: number, favoriteBook: string, favoriteAuthor: string){
+const updateBooksAndAuthor = await preferencesRepository.insertFavoriteBookAndAuthor(userId, favoriteBook, favoriteAuthor)
+
+}

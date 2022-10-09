@@ -9,3 +9,12 @@ export async function choiceFavoriteGenre(req: Request, res: Response){
     await preferencesService.choiceFavoriteGenre(Number(userId), genre1, genre2, genre3)
     return res.status(201).send("insert preferences with succesful")
 }
+
+export async function usersPreferences(req: Request, res: Response){
+    const {favoriteBook, favoriteAuthor} : {favoriteBook: string, favoriteAuthor: string} = req.body
+    const userId = res.locals.session
+
+    await preferencesService.choiceBookAndAuthor(Number(userId), favoriteBook, favoriteAuthor)
+    return res.status(201).send("Favorite Author and books includes in your perfil")
+
+}

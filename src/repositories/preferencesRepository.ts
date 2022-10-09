@@ -14,3 +14,14 @@ return await client.favoriteGenre.create({
     }
 })
 }
+
+export async function insertFavoriteBookAndAuthor(userId: number, favoriteBook: string, favoriteAuthor: string){
+    return await client.users.updateMany({
+        where: {
+            id: userId
+        }, data: {
+            favoriteAuthor: favoriteAuthor,
+            favoriteBook: favoriteBook
+        }
+    })
+}
