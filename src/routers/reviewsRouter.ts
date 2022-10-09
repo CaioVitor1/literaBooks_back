@@ -6,7 +6,7 @@ import { newReviewSchema } from "../schemas/reviewSchema";
 
 const reviewsRouter = Router();
 
-reviewsRouter.post("/reviews/register", validateSchema(newReviewSchema), newReview);
+reviewsRouter.post("/reviews/register", validateToken, validateSchema(newReviewSchema), newReview);
 reviewsRouter.get("/reviews/getRecommendations", validateToken, getRecommendations)
 reviewsRouter.get("/reviews/user", validateToken, getReviewsUser)
 export default reviewsRouter;

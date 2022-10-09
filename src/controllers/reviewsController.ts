@@ -3,12 +3,13 @@ import { Request, Response } from "express";
 import { IReviewData } from "../types/reviewsTypes";
 
 export async function newReview(req: Request, res: Response){
-    //const userId = res.locals.session;
-    const userId = 1;
+    const userId = res.locals.session;
     const review: IReviewData = req.body;
+    console.log("Olá, está aqui")
+    console.log(review)
     const newReview = await reviewsService.newReview(Number(userId), review)
-
-    return res.status(201).send(review)
+    console.log(userId)
+    return res.status(201).send("new review add")
 }
 
 export async function getRecommendations(req: Request, res: Response){

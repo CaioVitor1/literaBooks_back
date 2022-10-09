@@ -1,7 +1,7 @@
-import { prisma } from ".prisma/client";
+
 import client from "../database/postgres";
 import { IReviewData } from "../types/reviewsTypes";
-import { Prisma } from "@prisma/client";
+
 export async function insertReview(userId: number, review: IReviewData){
     return await client.reviews.create({
         data: {
@@ -10,7 +10,7 @@ export async function insertReview(userId: number, review: IReviewData){
             image: review.image,
             title: review.title,
             genreId: review.genreId,
-            userId: 1
+            userId: userId
         }
     })
 }
