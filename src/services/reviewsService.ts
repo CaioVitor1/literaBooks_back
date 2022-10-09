@@ -15,16 +15,19 @@ export async function getReviews(userId: number){
 
     const lookFirstRecommendations = await reviewRepository.findRecommendations(genre1)
     const lookSecondRecommendations = await reviewRepository.findRecommendations(genre2)
-    const lookThirtRecommendations = await reviewRepository.findRecommendations(genre2)
+    const lookThirtRecommendations = await reviewRepository.findRecommendations(genre3)
 
     console.log(lookFirstRecommendations)
-    console.log(lookSecondRecommendations)
-    console.log(lookThirtRecommendations)
-    
+
     const recommendations = [{
         first: lookFirstRecommendations,
         second: lookSecondRecommendations,
         thirt: lookThirtRecommendations
     }]
     return recommendations
+}
+
+export async function getReviewsUser(userId: number){
+    const searchReviews = await reviewRepository.findReviewsUser(userId);
+    return searchReviews
 }

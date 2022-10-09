@@ -30,3 +30,11 @@ export async function findRecommendations(genre: number){
         }
     })
 }
+
+export async function findReviewsUser(userId: number){
+    return await client.reviews.findMany({
+        where: {
+            userId: userId
+        }
+    })
+}

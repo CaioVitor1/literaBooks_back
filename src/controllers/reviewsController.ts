@@ -11,9 +11,16 @@ export async function newReview(req: Request, res: Response){
     return res.status(201).send(review)
 }
 
-export async function getReviews(req: Request, res: Response){
+export async function getRecommendations(req: Request, res: Response){
     const userId = res.locals.session;
     const reviews = await reviewsService.getReviews(Number(userId))
+
+    return res.status(200).send(reviews)
+}
+
+export async function getReviewsUser(req: Request, res: Response){
+    const userId = res.locals.session;
+    const reviews = await reviewsService.getReviewsUser(Number(userId))
 
     return res.status(200).send(reviews)
 }
