@@ -31,3 +31,8 @@ export async function getReviewsUser(userId: number){
     const searchReviews = await reviewRepository.findReviewsUser(userId);
     return searchReviews
 }
+
+export async function infoUnicReview(bookId: number) {
+    const review = await reviewRepository.findReview(bookId)
+    return review
+}

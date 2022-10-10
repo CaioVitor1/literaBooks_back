@@ -33,3 +33,12 @@ export async function getReviewsVisit(req: Request, res: Response){
 
     return res.status(200).send(reviews)
 }
+
+export async function infoUnicReview(req: Request, res: Response){
+    const {bookId} = req.params
+    console.log(bookId)
+
+    const review = await reviewsService.infoUnicReview(Number(bookId))
+
+    return res.status(200).send(review)
+}
