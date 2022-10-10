@@ -3,22 +3,39 @@ import supertest from "supertest";
 import client from "../../src/database/postgres";
 import * as userFactory from "../factories/userFactory";
 
-beforeEach(async () => {
-	await client.$executeRaw`TRUNCATE TABLE users;`;
-});
+
  
 // escrever um describe para cada rota;
 
-describe("create a new user", () => {
+describe("Auth route: create a new user and make login", () => {
 
-	it("given a valid body it should return 201", async () => {
+	it("create a new user it should return 201", async () => {
       
 		const body = await userFactory.createBodyUser()
         console.log(body)
 		const result = await supertest(app).post("/signup")
 			.send(body);
 		expect(result.status).toEqual(201);
+
+	});
+	it("create a new user it should return 200", async () => {
+      
+		const body = await userFactory.createBodyUser()
+        console.log(body)
+		const createUser = await supertest(app).post("/signup")
+			.send(body);
+		expect(createUser.status).toEqual(201);
+
+		const login = await supertest(app).post("/signin")
+			.send({
+				email: body.email,
+				password: body.password
+			})
+
+		expect(login.status).toEqual(200);
 	});
 
 
 });
+
+

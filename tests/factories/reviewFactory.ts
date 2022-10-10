@@ -3,7 +3,7 @@ import app from "../../src/app";
 import supertest from "supertest";
 import client from "../../src/database/postgres"
 
-export async function createBodyTest(){
+export async function createBodyReview(){
 	return {
 		title: faker.lorem.words(1),
         image: "https://5934488p.ha.azioncdn.net/capas-livros/9788580570458-david-nicholls-um-dia-3826118685.jpg",

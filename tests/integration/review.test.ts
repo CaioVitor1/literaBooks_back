@@ -4,9 +4,7 @@ import supertest from "supertest";
 import client from "../../src/database/postgres";
 import * as reviewFactory from "../factories/reviewFactory";
 
-beforeEach(async () => {
-	await client.$executeRaw`TRUNCATE TABLE reviews;`;
-});
+
  
 // escrever um describe para cada rota;
 
@@ -14,17 +12,18 @@ describe("create a new review", () => {
 
 	it("given a invalid body it should return 201", async () => {
       
-		const body = await reviewFactory.createBodyTest();
-
+		const body = await reviewFactory.createBodyReview();
+		const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTY2NTM3NTMyOSwiZXhwIjoxNjY3OTY3MzI5fQ.T0f1p5dks3qHwNJ6zMCfcdBRyFui1f-EA2vin9wdwQk"
 		const result = await supertest(app).post("/reviews/register")
-			.send(body);
+		.set({Authorization: `Bearer ${token}`})	
+		.send(body);
 		expect(result.status).toEqual(201);
 	});
 
 	
 
 });
-
+/*
 describe("get all recommendations register", () => {
 
 
@@ -42,11 +41,7 @@ describe("get all recommendations register", () => {
 
 });
 
+*/
 
 
-
-
-afterAll(async () => {
-	await client.$disconnect();
-});
 

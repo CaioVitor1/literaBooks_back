@@ -1,6 +1,6 @@
 import * as usersRepository from "../repositories/usersRepository";
 import { IUserData } from "../types/usersType";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken';
 
 export async function createUser(user: IUserData){
