@@ -2,7 +2,10 @@ import { IReviewData } from "../types/reviewsTypes";
 import * as reviewRepository from "../repositories/reviewsRepository";
 
 export async function newReview(userId: number, review: IReviewData){
-const newReview = reviewRepository.insertReview(userId, review)
+    
+    const newReview = await reviewRepository.insertReview(userId, review)
+    
+
 }
 
 export async function getReviews(userId: number){
