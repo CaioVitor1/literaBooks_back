@@ -2,37 +2,27 @@
 import app from "../../src/app";
 import supertest from "supertest";
 import client from "../../src/database/postgres";
+import * as preferencesFactory from "../factories/preferencesFactory";
 import * as reviewFactory from "../factories/reviewFactory";
-
 
  
 // escrever um describe para cada rota;
 
-describe("create a new review", () => {
+describe("create a new favorite genre", () => {
 
-	it("given a invalid body it should return 201", async () => {
+	it("choice Favorite Genre it should return 201", async () => {
       
-		const body = await reviewFactory.createBodyReview();
-		
-		console.log("o body é")
-		console.log(body)
-		console.log("o token é: ")
-		
+		const body = {
+            readingGoals: "3"
+        }
+        
 		const token = await reviewFactory.makeLogin()
-		console.log(token)
-
-		const result = await supertest(app).post("/reviews/register")
+		const result = await supertest(app).post("/preferences/readingGoals")
 		.set({Authorization: `Bearer ${token}`})	
 		.send(body);
-		expect(result.status).toEqual(201);
+		expect(result.status).toEqual(200);
 	});
 
 	
 
 });
-
-
-
-
-
-

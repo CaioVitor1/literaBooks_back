@@ -2,7 +2,7 @@ import {faker} from "@faker-js/faker";
 import app from "../../src/app";
 import supertest from "supertest";
 import client from "../../src/database/postgres"
-
+import * as userFactory from "../factories/userFactory"
 export async function createBodyReview(){
 	return {
 		title: faker.lorem.words(1),
@@ -15,7 +15,7 @@ export async function createBodyReview(){
 }
 
 export async function makeLogin(){
-    /*
+        const user = await userFactory.createBodyUser()
         const createUser = await supertest(app).post("/signup").send(user);
 
         expect(createUser.status).toEqual(201);
@@ -26,5 +26,5 @@ export async function makeLogin(){
         });
         const token  = login.text;
         return token
-        */
+        
 }
