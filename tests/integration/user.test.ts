@@ -9,21 +9,13 @@ import * as userFactory from "../factories/userFactory";
 
 describe("Auth route: create a new user and make login", () => {
 
-	it("create a new user it should return 201", async () => {
-      
-		const body = await userFactory.createBodyUser()
-        console.log(body)
-		const result = await supertest(app).post("/signup")
-			.send(body);
-		expect(result.status).toEqual(201);
-
-	});
-	it("create a new user it should return 200", async () => {
+	it("create a new user it should return 201 and make login return 200", async () => {
       
 		const body = await userFactory.createBodyUser()
         console.log(body)
 		const createUser = await supertest(app).post("/signup")
 			.send(body);
+			
 		expect(createUser.status).toEqual(201);
 
 		const login = await supertest(app).post("/signin")
