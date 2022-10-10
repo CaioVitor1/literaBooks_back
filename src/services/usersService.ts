@@ -17,7 +17,13 @@ user.password = encryptedPassword
 
  //Roles of business: save new user
 const newUser = await usersRepository.insertUser(user)
-return newUser
+console.log(newUser)
+
+const chave: any = process.env.JWT_SECRET;
+const configuracoes = { expiresIn: 60*60*24*30 }
+const token = jwt.sign({ userId: newUser.id }, chave, configuracoes); 
+return token
+        
 }
 
 export async function login(user: IUserData){

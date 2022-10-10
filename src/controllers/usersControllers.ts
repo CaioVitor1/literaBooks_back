@@ -7,8 +7,8 @@ export async function signUp(req: Request, res: Response) {
     const user: IUserData = req.body
     console.log("está no signUp e o User enviado é: ")
     console.log(user)
-    const insertedUser = await usersService.createUser(user)
-    return res.status(201).send("User created")
+    const token = await usersService.createUser(user)
+    return res.status(201).send(token)
    }
    
 export async function signIn(req: Request, res: Response){
