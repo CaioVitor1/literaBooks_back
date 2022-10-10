@@ -22,7 +22,8 @@ export async function usersPreferences(req: Request, res: Response){
 export async function choiceReadingGols(req: Request, res: Response){
     const {readingGoals} : {readingGoals: string} = req.body
     const userId = res.locals.session
-
+    console.log("o readingGoals é: ")
+    console.log(readingGoals)
     await preferencesService.choiceReadingGoals(Number(userId), Number(readingGoals))
     return res.status(200).send("Reading goals includs in your perfil")
 }
