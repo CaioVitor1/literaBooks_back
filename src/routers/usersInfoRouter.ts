@@ -5,7 +5,7 @@ import { validateToken } from "../middlewares/validateToken";
 
 const infoUsersRouter = Router();
 
-infoUsersRouter.get("/infos/users", validateToken, getInfoUsers);
+infoUsersRouter.get("/infos/user", validateToken, getInfoUsers);
 infoUsersRouter.get("/infos/users/:idUser", validateToken, getInfoVisit);
 infoUsersRouter.get("/infos/everyUsers", validateToken, getEveryUsers);
 
