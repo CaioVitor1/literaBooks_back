@@ -6,3 +6,4 @@ app.listen(PORT, () => {
     console.log(`Server com TS rodando na porta: ${PORT}`);
   });
   
+  //   http://localhost:5000/src/uploads/nome_da imahemsx
