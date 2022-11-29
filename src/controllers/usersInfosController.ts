@@ -3,7 +3,8 @@ import * as usersInfosService from "../services/usersInfosService";
 
 export async function getInfoUsers(req: Request, res: Response){
     const userId = res.locals.session;
-    
+    console.log("estamos aqui no teste. O user ID é: ")
+    console.log(userId)
     const infos = await usersInfosService.getInfoUsers(Number(userId))
     return res.status(200).send(infos)
 
