@@ -328,13 +328,19 @@ Primeiro, faça o clone desse repositório na sua maquina:
 git clone https://github.com/CaioVitor1/literaBooks_back.git
 ```
 
-Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
+Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias:
 
 ```
 npm install
 ```
 
-Finalizado o processo, é só inicializar o servidor
+Em seguida, rode o seed para atualizar o banco de dados:
+
+```
+npm run dev:seed
+```
+
+Finalizado o processo, é só inicializar o servidor:
 ```
 npm run dev
 ```
@@ -351,5 +357,5 @@ npm run test:integration
 
 ---
 
-Made by <a href='https://www.linkedin.com/in/caiovitor33/'> Caio Vitor </a>
+Made with love by <a href='https://www.linkedin.com/in/caiovitor33/'> Caio Vitor </a>
 
