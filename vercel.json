@@ -2,9 +2,9 @@
     "version": 2,
     "name": "literabooks",
     "builds": [
-       { "src": "server.js", "use": "@vercel/node" }
+       { "src": "dist/src/server.js", "use": "@vercel/node" }
     ],
     "routes": [
-       { "src": "/(.*)", "dest": "/server.js" }
+       { "src": "/(.*)", "dest": "dist/src/server.js" }
     ]
  }
