@@ -7,6 +7,7 @@
     "build": "tsc && npx prisma migrate deploy",
     "start": "node dist/src/server.js",
     "dev": "nodemon src/server.ts",
+    "dev:seed": "npx prisma db seed",
     "prisma-test": "dotenv -e .env.test prisma migrate dev",
     "test:unit": "dotenv -e .env.test jest -- -i --coverage --testPathPattern=tests/unit",
     "test:integration": "npx dotenv-cli -e .env.test -- jest -i",
@@ -15,6 +16,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },  
   "dependencies": {
     "@faker-js/faker": "^7.5.0",
     "@prisma/client": "^4.4.0",
