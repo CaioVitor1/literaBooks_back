@@ -1,7 +1,7 @@
 import multer from "multer";
 import path from 'path';
 
-console.log("chegou aqui")
+
 export const storage = (multer({
     storage: multer.diskStorage({
         destination: (req, file, callback) => {

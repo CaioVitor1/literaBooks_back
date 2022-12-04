@@ -10,8 +10,7 @@ return infos
 
 export async function getEveryUsers() {
     const users = await usersInfosRepository.findEveryUsers();
-    console.log("está aqui")
-    console.log(users)
+
     return users
 }
 

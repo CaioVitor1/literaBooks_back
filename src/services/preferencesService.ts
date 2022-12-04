@@ -23,9 +23,7 @@ const updateBooksAndAuthor = await preferencesRepository.insertFavoriteBookAndAu
 }
 
 export async function choiceReadingGoals(userId: number, readingGoals: number){
-    console.log("está aqui no service")
-    console.log(readingGoals)
-    console.log(typeof readingGoals)
+    
     const updateReadingGoals = await preferencesRepository.insertReadingGoals(userId, readingGoals)
 
 }

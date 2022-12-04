@@ -2,9 +2,9 @@ import { NextFunction, Request, Response } from "express";
 import jwt from 'jsonwebtoken';
 
 export async function validateToken(req: Request, res: Response, next: NextFunction) {
-    console.log("está aqui")
+  
         const { authorization } = req.headers;
-        console.log(authorization)
+        
         if(!authorization) {
             throw { code: "Unauthorized", message: "requisition must have a token" };
         }
@@ -15,7 +15,7 @@ export async function validateToken(req: Request, res: Response, next: NextFunct
             if(!token || !userId) {
                 return res.sendStatus(401);
             }
-            console.log("o userId do token é: " + userId)
+           
             res.locals.session = userId
            
             next();
