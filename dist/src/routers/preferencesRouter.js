@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const preferencesController_1 = require("../controllers/preferencesController");
+const validateToken_1 = require("../middlewares/validateToken");
+const preferencesRouter = (0, express_1.Router)();
+preferencesRouter.post("/preferences/genres", validateToken_1.validateToken, preferencesController_1.choiceFavoriteGenre);
+preferencesRouter.post("/preferences/userspreferences", validateToken_1.validateToken, preferencesController_1.usersPreferences);
+preferencesRouter.post("/preferences/readingGoals", validateToken_1.validateToken, preferencesController_1.choiceReadingGols);
+exports.default = preferencesRouter;
