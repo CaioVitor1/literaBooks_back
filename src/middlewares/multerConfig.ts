@@ -5,7 +5,7 @@ import path from 'path';
 export const storage = (multer({
     storage: multer.diskStorage({
         destination: (req, file, callback) => {
-            callback(null, path.resolve("src/assets/uploads"))
+            callback(null, path.resolve("/tmp/"))
         },
         filename: (req, file, callback) => {
     
