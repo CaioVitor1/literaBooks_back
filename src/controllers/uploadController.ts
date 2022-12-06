@@ -9,16 +9,17 @@ let nome = ""
 console.log("está aqui")
 if(req.file){
     const image = req.file
+    /*
     await client.imagem.create({
         data: {
             title: image.fieldname,
             image: image.buffer
         }
-    })
+    })*/
     return res.json({
         erro: false,
         message: "Upload realizado com sucesso",
-        content: image.buffer
+        content: image
     })
 } else{
     return res.status(400).json({
