@@ -68,3 +68,9 @@ model recommendations {
   description     String
   genre           genre             @relation(fields: [genreId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
+
+model imagem {
+  id              Int               @id @default(autoincrement())
+  title           String
+  image           Bytes
+}
