@@ -61,7 +61,7 @@ function findReviewsUser(userId) {
 exports.findReviewsUser = findReviewsUser;
 function findReview(bookId) {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield postgres_1.default.reviews.findUnique({
+        return yield postgres_1.default.recommendations.findUnique({
             where: {
                 id: bookId
             }
