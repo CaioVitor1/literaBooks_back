@@ -40,7 +40,7 @@ export async function findReviewsUser(userId: number){
 }
 
 export async function findReview(bookId: number){
-    return await client.recommendations.findUnique({
+    return await client.reviews.findUnique({
         where: {
             id: bookId
         }

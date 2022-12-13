@@ -21,3 +21,9 @@ export async function getRecommendations(userId: number){
     }]
     return recommendations
 }
+
+export async function infoUnicRecommendation(bookId: number) {
+    const recommendations = await recommendationsRepository.findOneRecommendation(bookId)
+    
+    return recommendations
+}

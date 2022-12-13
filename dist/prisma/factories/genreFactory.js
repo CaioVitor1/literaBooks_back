@@ -8,29 +8,38 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findOneRecommendation = exports.findRecommendations = void 0;
-const postgres_1 = __importDefault(require("../database/postgres"));
-function findRecommendations(genre) {
+exports.createGenre = void 0;
+function createGenre() {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield postgres_1.default.recommendations.findMany({
-            where: {
-                genreId: genre
-            }
-        });
+        const books = [{
+                name: 'biografia'
+            },
+            {
+                name: 'infantil'
+            },
+            {
+                name: 'romances'
+            },
+            {
+                name: 'mangas'
+            },
+            {
+                name: 'misterio'
+            },
+            {
+                name: 'ficcao'
+            },
+            {
+                name: 'suspense'
+            },
+            {
+                name: 'ciencias'
+            },
+            {
+                name: 'espiritual'
+            }];
+        return books;
     });
 }
-exports.findRecommendations = findRecommendations;
-function findOneRecommendation(bookId) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return yield postgres_1.default.recommendations.findUnique({
-            where: {
-                id: bookId
-            }
-        });
-    });
-}
-exports.findOneRecommendation = findOneRecommendation;
+exports.createGenre = createGenre;

@@ -7,3 +7,11 @@ export async function findRecommendations(genre: number){
         }
     })
 }
+
+export async function findOneRecommendation(bookId: number){
+    return await client.recommendations.findUnique({
+        where: {
+            id: bookId
+        }
+    })
+}

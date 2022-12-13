@@ -32,13 +32,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRecommendations = void 0;
-const recommendaionsService = __importStar(require("../services/recommendationsService"));
+exports.getUnicRecommendation = exports.getRecommendations = void 0;
+const recommendationsService = __importStar(require("../services/recommendationsService"));
 function getRecommendations(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const userId = res.locals.session;
-        const recommendations = yield recommendaionsService.getRecommendations(Number(userId));
+        const recommendations = yield recommendationsService.getRecommendations(Number(userId));
         return res.status(200).send(recommendations);
     });
 }
 exports.getRecommendations = getRecommendations;
+function getUnicRecommendation(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const { bookId } = req.params;
+        const recommendation = yield recommendationsService.infoUnicRecommendation(Number(bookId));
+        return res.status(200).send(recommendation);
+    });
+}
+exports.getUnicRecommendation = getUnicRecommendation;

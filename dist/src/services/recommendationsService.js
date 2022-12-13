@@ -32,7 +32,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRecommendations = void 0;
+exports.infoUnicRecommendation = exports.getRecommendations = void 0;
 const recommendationsRepository = __importStar(require("../repositories/recommendationsRepository"));
 const reviewRepository = __importStar(require("../repositories/reviewsRepository"));
 function getRecommendations(userId) {
@@ -53,3 +53,10 @@ function getRecommendations(userId) {
     });
 }
 exports.getRecommendations = getRecommendations;
+function infoUnicRecommendation(bookId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const recommendations = yield recommendationsRepository.findOneRecommendation(bookId);
+        return recommendations;
+    });
+}
+exports.infoUnicRecommendation = infoUnicRecommendation;
