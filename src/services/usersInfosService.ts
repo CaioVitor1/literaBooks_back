@@ -1,16 +1,14 @@
-import * as usersInfosRepository from "../repositories/usersInfosRepository";
+import * as usersInfosRepository from '../repositories/usersInfosRepository';
 
 export async function getInfoUsers(userId: number){
-const infos = await usersInfosRepository.findInfoUsers(userId);
-if(infos === null) {
-    throw { code: "notFound", message: "this user is not register" };
+	const infos = await usersInfosRepository.findInfoUsers(userId);
+	if(infos === null) {
+		throw { code: 'notFound', message: 'this user is not register' };
+	}
+	return infos;
 }
-return infos
-}
-
 export async function getEveryUsers() {
-    const users = await usersInfosRepository.findEveryUsers();
-
-    return users
+	const users = await usersInfosRepository.findEveryUsers();
+	return users;
 }
 
