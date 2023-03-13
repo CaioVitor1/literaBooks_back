@@ -27,7 +27,6 @@
 # Documentação
 
 
-
 ## 1 - Rotas de cadastro (autenticação com JWT)
 
 <details>
