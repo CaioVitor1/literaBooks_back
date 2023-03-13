@@ -15,7 +15,7 @@
 * [Tecnologias](#tecnologias)
 
 # Resumo
- <h3>Você poderá fazer seu cadastro na nossa rede social e preencher seu perfil informando algumas de suas preferências, como: autor favorito, genêros favoritos, livro favorito, meta de leitura anual e muito mais!</h3>
+ <h3>Você poderá fazer seu cadastro na nossa rede social e preencher seu perfil informando algumas de suas preferências, como: autor favorito, genêros favoritos, livro favorito, meta de leitura anual e muito mais!!!</h3>
 <h3>  Ao entrar em nossa plataforma você receberá sugestões de livros baseados nos seus gostos preferidos, vendo um belo resumo do livro. </h3> 
 <h3>  Além disso, você poderá ver quais as últimas leituras de outros usuários e saber o que eles acharam dos livros! </h3><br>
 
